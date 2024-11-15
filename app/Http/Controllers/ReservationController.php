@@ -109,6 +109,10 @@ class ReservationController extends Controller
 
        $reservation->delete();
 
-       return response()->json(['message' => 'Reservation deleted successfully']);
+   // Retrieve all reservations
+   $reservations = Reservation::all();
+
+   // Pass data to the view
+   return view('dashboard', compact('reservations'));
    }
 }

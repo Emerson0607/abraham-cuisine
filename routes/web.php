@@ -35,7 +35,8 @@ Route::prefix('reservations')->group(function () {
     Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('reservations.update');
 
     Route::get('{id}/edit', [ReservationController::class, 'edit']); // Show edit form
-    Route::delete('{id}', [ReservationController::class, 'destroy']); // Delete reservation
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
 });
 
 

@@ -72,15 +72,22 @@
                 </div>
 
                 <div class="flex justify-end space-x-4 mt-6">
-                    <a href="{{ route('dashboard') }}"
+                    <button type="button" onclick="document.getElementById('delete-form').submit();"
                         class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition duration-200">
-                        Cancel
-                    </a>
+                        Delete
+                    </button>
                     <button type="submit"
                         class="bg-blue-500 text-black px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
                         Update Reservation
                     </button>
                 </div>
+            </form>
+
+
+            <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" id="delete-form">
+                @csrf
+                @method('DELETE')
+
             </form>
         </div>
     </div>
